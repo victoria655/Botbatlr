@@ -162,8 +162,10 @@ Email: karonjivictoria@gmail.com
 
 ---
 
+### known issues
+-One cannot add a bot in the bot collection to sell it
 
-
+---
 
 
 ### Contact Information
