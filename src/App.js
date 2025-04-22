@@ -63,9 +63,16 @@ function MainApp() {
   return (
     <>
       <nav className="navbar">
-        <Link to="/">Home</Link>
-        <Link to="/collection">Bot Collection</Link>
-        <Link to="/army">Your Army</Link>
+        <div className="navbar-left">
+        <img src="/logo.jpg" alt="Bot Battlr Logo" className="logo" />
+
+          <span className="title">Bot Battlr</span>
+        </div>
+        <div className="navbar-right">
+          <Link to="/">Home</Link>
+          <Link to="/collection">Bot Collection</Link>
+          <Link to="/army">Your Army</Link>
+        </div>
       </nav>
 
       <div className={`App ${selectedBot && isCollectionPage ? 'blurred' : ''}`}>
