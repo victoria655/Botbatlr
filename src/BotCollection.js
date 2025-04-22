@@ -7,6 +7,7 @@ function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
   const [sortKey, setSortKey] = useState('');
   const [selectedClass, setSelectedClass] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [addedClasses, setAddedClasses] = useState([]);  // Track added bot classes
 
   const handleSearchChange = (query) => {
     setSearchQuery(query.toLowerCase());
@@ -49,6 +50,15 @@ function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
     return [...filteredBots].sort((a, b) => b[sortKey] - a[sortKey]);
   }, [filteredBots, sortKey]);
 
+  const handleAddToArmy = (bot) => {
+    if (addedClasses.includes(bot.bot_class)) {
+      alert(`You can only add one bot from the ${bot.bot_class} class. Please choose a different class.`);
+    } else {
+      setAddedClasses((prevClasses) => [...prevClasses, bot.bot_class]); // Add class to the list
+      onAddToArmy(bot);  // Call the original onAddToArmy function
+    }
+  };
+
   return (
     <div className="bot-collection-wrapper">
       <SidebarFilter selectedClass={selectedClass} onClassSelect={setSelectedClass} />
@@ -59,8 +69,8 @@ function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
           selectedBot={selectedBot}
           onSelect={onSelect}
           onBack={onBack}
-          onAddToArmy={onAddToArmy}
-          onDelete={handleDeleteBot} // Passing the delete function
+          onAddToArmy={handleAddToArmy}  // Pass the modified add to army function
+          onDelete={handleDeleteBot}
         />
       </div>
     </div>
