@@ -333,6 +333,91 @@ body, .App {
 .main-content {
   flex: 1;
 }
+.discharge-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+/* Style for the red X button */
+.delete-btn {
+  position: absolute;
+  top: 10px; /* Distance from the top */
+  right: 10px; /* Distance from the right */
+  background-color: red; /* Red background */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Circular button */
+  width: 30px;
+  height: 30px;
+  font-size: 18px; /* Font size for X */
+  cursor: pointer; /* Change cursor to pointer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn:hover {
+  background-color: darkred; /* Darken button on hover */
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  width: 300px;
+}
+
+/* Modal buttons */
+.modal-actions button {
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button:hover {
+  background-color: darkred;
+}
+.remove-btn {
+  background-color: red;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.remove-btn:hover {
+  background-color: darkred;
+}
+
+
+
 @media (max-width: 1200px) {
   .title {
     margin-right: 800px;

@@ -12,17 +12,32 @@ function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
     setSearchQuery(query.toLowerCase());
   };
 
+  const handleDeleteBot = (botId) => {
+    fetch(`http://localhost:8001/bots/${botId}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then(() => {
+        // Update state or re-fetch the bot list if needed
+        alert(`Bot ${botId} deleted successfully!`);
+      })
+      .catch((error) => {
+        console.error('Error deleting bot:', error);
+      });
+  };
+
   const filteredBots = useMemo(() => {
     let result = bots;
 
     if (selectedClass) {
-      result = result.filter(bot => bot.bot_class === selectedClass);
+      result = result.filter((bot) => bot.bot_class === selectedClass);
     }
 
     if (searchQuery) {
-      result = result.filter(bot =>
-        bot.weapon?.toLowerCase().includes(searchQuery) ||
-        bot.name?.toLowerCase().includes(searchQuery)
+      result = result.filter(
+        (bot) =>
+          bot.weapon?.toLowerCase().includes(searchQuery) ||
+          bot.name?.toLowerCase().includes(searchQuery)
       );
     }
 
@@ -45,6 +60,7 @@ function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
           onSelect={onSelect}
           onBack={onBack}
           onAddToArmy={onAddToArmy}
+          onDelete={handleDeleteBot} // Passing the delete function
         />
       </div>
     </div>

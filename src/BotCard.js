@@ -1,15 +1,33 @@
 import React from 'react';
 
-function BotCard({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
+function BotCard({ bots, selectedBot, onSelect, onBack, onAddToArmy, onDelete }) {
+  const handleDelete = (botId) => {
+    const confirmDelete = window.confirm("Are you sure you want to discharge this bot?");
+    if (confirmDelete) {
+      onDelete(botId);
+    }
+  };
+
   return (
     <div className="bot-collection">
       {selectedBot ? (
         <div className="bot-card focused">
+          {/* Delete button in the top right */}
+          <button
+            className="delete-btn"
+            onClick={() => handleDelete(selectedBot.id)}
+            style={{ position: 'absolute', top: '10px', right: '10px' }}
+          >
+            X
+          </button>
+
           <img src={selectedBot.avatar_url} alt={selectedBot.name} />
           <h3>{selectedBot.name}</h3>
           <p>{selectedBot.catchphrase}</p>
           <p>Class: {selectedBot.bot_class}</p>
-          <p>Health: {selectedBot.health} | Damage: {selectedBot.damage} | Armor: {selectedBot.armor}</p>
+          <p>
+            Health: {selectedBot.health} | Damage: {selectedBot.damage} | Armor: {selectedBot.armor}
+          </p>
           <div className="btn-group">
             <button onClick={onAddToArmy}>Add to Army</button>
             <button onClick={onBack}>Back</button>

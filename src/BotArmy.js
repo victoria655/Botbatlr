@@ -1,7 +1,13 @@
-// YourBotArmy.js
 import React from 'react';
 
 function BotArmy({ army, onRemoveFromArmy }) {
+  const handleDischarge = (botId) => {
+    const confirmDischarge = window.confirm("Are you sure you want to discharge this bot from your army?");
+    if (confirmDischarge) {
+      onRemoveFromArmy(botId);
+    }
+  };
+
   return (
     <div className="bot-collection">
       {army.length === 0 ? (
@@ -9,7 +15,12 @@ function BotArmy({ army, onRemoveFromArmy }) {
       ) : (
         army.map((bot) => (
           <div key={bot.id} className="bot-card">
-            <button className="remove-btn" onClick={() => onRemoveFromArmy(bot.id)}>Discharge</button>
+            <button 
+              className="remove-btn" 
+              onClick={() => handleDischarge(bot.id)}
+            >
+              Discharge
+            </button>
             <img src={bot.avatar_url} alt={bot.name} />
             <h3>{bot.name}</h3>
             <p>{bot.catchphrase}</p>
