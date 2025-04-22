@@ -68,6 +68,117 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### BotBattlr
+
+---
+
+### Project Name
+- Scholarship Navigator
+
+---
+
+### Description
+Welcome to BotBattlr, a fun and interactive app where you can collect, manage, and deploy a variety of bots! Build your own bot army, organize bots based on their class, and choose your favorite bots to fight for you. You can add them to your army, view their stats, and discharge them if needed!
+
+
+
+---
+### Key Features
+1.Bot Collection: View a list of bots, filter them by class (e.g., Medic, Assault, Defender, etc.), and search for specific bots by name or weapon.
+
+2.Bot Details: Click on a bot to see its full details, including stats like health, damage, and armor.
+
+3.Add to Army: Select bots to add to your army. If a bot is already in your army, you’ll be notified.
+
+4.Manage Your Army: View the bots in your army and remove them if you wish. You’ll be asked for confirmation before discharging a bot from your army.
+
+5.Responsive Design: Works seamlessly on both desktop and mobile devices.
+
+
+---
+
+### Behavior-Driven Development (BDD)
+1. Bot Collection
+Users can view a list of bots with their names, images, and descriptions.
+
+Users can search for bots by name or weapon.
+
+Users can filter bots by class.
+
+2. Bot Details
+Clicking a bot shows its detailed information, including avatar, name, health, damage, armor, and catchphrase.
+
+3. Add Bot to Army
+Users can add a bot to their army from the details page.
+
+Duplicate bots cannot be added to the army.
+
+4. View Army
+Users can view all the bots in their army, with names, images, and stats.
+
+5. Discharge Bot from Army
+Users can discharge a bot from their army with a confirmation prompt.
+
+Discharging can be confirmed or canceled.
+
+6. Responsive Design
+The app adapts to mobile view, with a responsive layout and navigation.
+
+7. Persistent Data
+Added bots remain in the army after page refresh or app restart.
+
+
+---
+
+### Technologies Used
+1.React: For building the user interface.
+
+2.React Router: For navigation between pages.
+
+3.JSON Server: For simulating a backend database to fetch and manipulate bot data.
+
+4.LocalStorage: For persisting the bot army data in the browser across sessions.
+
+5.CSS: For styling the app with a clean and responsive layout.
+
+
+---
+### Author
+
+Praise Victoria
+Email: karonjivictoria@gmail.com
+
+---
+ ### Setup Instructions
+
+1.Clone the repository
+2.Navigate to the project directory in a code editor like VS Code.
+3.Run the application
+4.Open index.html in a browser.
+---
+
+
+
+
+
+### Contact Information
+
+For inquiries or suggestions regarding this project, reach out to the author:
+Email: karonjivictoria@gmail.com
+
+---
+
+
+ ### License
+
+License: This project is licensed under the MIT License.
+Copyright: © 2025 Praise Victoria. All rights reserved.
+
+
+
+---
+
 ### Site is live at :
 
 https://botbatlr.pages.dev/army
