@@ -153,9 +153,13 @@ Email: karonjivictoria@gmail.com
  ### Setup Instructions
 
 1.Clone the repository
+
 2.Navigate to the project directory in a code editor like VS Code.
+
 3.Run the application
+
 4.Open index.html in a browser.
+
 ---
 
 
