@@ -3,14 +3,31 @@ import SortBar from './SortBar';
 import SidebarFilter from './SidebarFilter';
 import BotCard from './BotCard';
 
-
 function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
   const [sortKey, setSortKey] = useState('');
   const [selectedClass, setSelectedClass] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = (query) => {
+    setSearchQuery(query.toLowerCase());
+  };
 
   const filteredBots = useMemo(() => {
-    return selectedClass ? bots.filter(bot => bot.bot_class === selectedClass) : bots;
-  }, [bots, selectedClass]);
+    let result = bots;
+
+    if (selectedClass) {
+      result = result.filter(bot => bot.bot_class === selectedClass);
+    }
+
+    if (searchQuery) {
+      result = result.filter(bot =>
+        bot.weapon?.toLowerCase().includes(searchQuery) ||
+        bot.name?.toLowerCase().includes(searchQuery)
+      );
+    }
+
+    return result;
+  }, [bots, selectedClass, searchQuery]);
 
   const sortedBots = useMemo(() => {
     if (!sortKey) return filteredBots;
@@ -21,7 +38,7 @@ function BotCollection({ bots, selectedBot, onSelect, onBack, onAddToArmy }) {
     <div className="bot-collection-wrapper">
       <SidebarFilter selectedClass={selectedClass} onClassSelect={setSelectedClass} />
       <div className="main-content">
-        <SortBar onSortChange={setSortKey} />
+        <SortBar onSortChange={setSortKey} onSearchChange={handleSearchChange} />
         <BotCard
           bots={sortedBots}
           selectedBot={selectedBot}
