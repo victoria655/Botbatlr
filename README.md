@@ -187,4 +187,4 @@ Copyright: © 2025 Praise Victoria. All rights reserved.
 
 ### Site is live at :
 
-https://botbatlr.pages.dev/army
+https://botbatlr.pages.dev/
